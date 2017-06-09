@@ -1,0 +1,16 @@
+{
+  "desk": {
+    "room": "floor2",
+    "map": "/api/nodes/ip/172.17.0.6/map"
+  },
+  "contestant": {
+    "number": 3,
+    "country": "Iran",
+    "name": "IranianContestant-3",
+    "id": "IRN3"
+  },
+  "node": {
+    "mac": "42:42:42:42:42:06",
+    "ip": "172.17.0.6"
+  }
+}

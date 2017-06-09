@@ -1,0 +1,53 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600);
+
+body, * {
+    font-family: 'Source Sans Pro', arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    color: #666;
+    font-size: 30pt;
+    font-weight: 200;
+    letter-spacing: -.05em;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    margin: 1in .8in 0;
+    background-color: white;
+}
+
+h1 {
+    font-size: 50pt;
+}
+
+h2 {
+    margin: -.25em 0 .1em -.05em;
+    font-size: 55pt;
+    font-weight: 400;
+}
+
+p {
+    margin: -.2em 0;
+}
+
+.location {
+    background-color: #e5e5e5;
+    border: 1px solid #ccc;
+    width: 300pt;
+    height: 240pt;
+    margin: 30pt 0;
+}
+
+.sep {
+    margin: 40pt;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 300px;
+    overflow: hidden;
+}
