@@ -28,14 +28,15 @@
     - [ ] Bash script in Print server
 
 - Mass Print Command
-    - [x] Bash script - Input Arguments: file_path, count, printer/class
+    - [x] Bash script - Input Arguments: file_path, printer/class, [count]
 
 
 ## `ioiprint` python script
 Resides in (front-) print server
 
-Arguments:
-- `ioiprint translation file_path country_code country_name count`
-- `ioiprint cms request_msg ip`
-- `ioiprint contestant file_path ip`
-- `ioiprint mass file_path printer count`
+Usage:
+
+    ioiprint translation file_path country_code country_name count
+    ioiprint cms request_msg ip
+    ioiprint contestant file_path ip cups_job_id
+    ioiprint mass file_path printer count

@@ -1,0 +1,22 @@
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container last">
+    <h1>{{ contestant_id }}</h1>
+    <h2>Desk: {{ desk_id }}</h2>
+    <p>{{ contestant_name }}</p>
+
+    <div class="sep"></div>
+
+    <p>Pages: {{ num_pages }} (was {{ original_num_pages }})</p>
+    <p>Time: {{ time }}Fri, 15:40:20</p>
+    <p>Print ID: {{ print_id }}</p>
+
+    <div class="location"></div>
+
+    <img class="desk_map" src="{{ desk_map_img }}">
+</div>
+</body>
+</html>

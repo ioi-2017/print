@@ -51,3 +51,12 @@ p {
     width: 300px;
     overflow: hidden;
 }
+
+.desk_map {
+    margin:-30pt -35pt;
+    width:350pt
+}
+
+#side_image {
+    width: 300px;
+}
