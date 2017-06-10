@@ -6,15 +6,16 @@ PRINT_SERVER_SSH_ADDRESS="${PRINT_SERVER_USERNAME}@${PRINT_SERVER_IP}"
 
 PRINT_SERVER_TMP_FOLDER="~/tmp/mass"
 
-if (( $# < 1 || $# > 2 )); then
-    echo "Illegal number of arguments, it should be either 1 or 2"
-    echo "Usage: mass.sh FILENAME [COUNT]"
+if (( $# < 2 || $# > 3 )); then
+    echo "Illegal number of arguments, it should be either 2 or 3"
+    echo "Usage: mass.sh FILENAME PRINTER [COUNT]"
     echo "  argument COUNT defaults to 1"
     exit 1
 fi
 
 FILENAME=$1
-COUNT=${2:-1}
+PRINTER=$2
+COUNT=${3:-1}
 
 if [ ! -f "$FILENAME" ]; then
     echo "File not found!"
@@ -23,8 +24,8 @@ fi
 
 ssh "$PRINT_SERVER_SSH_ADDRESS" -C "mkdir -p '$PRINT_SERVER_TMP_FOLDER'"
 
-NEW_FILENAME="${PRINT_SERVER_TMP_FOLDER}/`date '+%F_%T'`__${COUNT}_`echo $FILENAME | rev | cut -d/ -f1 | rev`"
+NEW_FILENAME="${PRINT_SERVER_TMP_FOLDER}/`date '+%F_%T'`__${PRINTER}__${COUNT}__`echo $FILENAME | rev | cut -d/ -f1 | rev`"
 echo $NEW_FILENAME
 scp "$FILENAME" "${PRINT_SERVER_SSH_ADDRESS}:${NEW_FILENAME}"
 
-ssh "$PRINT_SERVER_SSH_ADDRESS" -C "ioiprint mass '$NEW_FILENAME' '$COUNT'"
+ssh "$PRINT_SERVER_SSH_ADDRESS" -C "ioiprint mass '$NEW_FILENAME' '$PRINTER' '$COUNT'"

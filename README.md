@@ -18,17 +18,17 @@
 - CMS Request
     - [ ] Determine types of requests (farzad)
     - [ ] Template
-    - [ ] Bash script in CMS - request_type:String, IP (farzad)
+    - [x] Bash script in CMS - request_type:String, IP (farzad)
     - [ ] Bash script in Print server
 
 - Translation
     - [ ] Translation Printer Class
     - [ ] First page template
-    - [ ] Bash script in Translation system - Input Arguments: file_path, country_code, country_name, [count]
+    - [x] Bash script in Translation system - Input Arguments: file_path, country_code, country_name, [count]
     - [ ] Bash script in Print server
 
 - Mass Print Command
-    - [ ] Bash script - Input Arguments: file_path, count, printer/class
+    - [x] Bash script - Input Arguments: file_path, count, printer/class
 
 
 ## `ioiprint` python script
@@ -38,4 +38,4 @@ Arguments:
 - `ioiprint translation file_path country_code country_name count`
 - `ioiprint cms request_msg ip`
 - `ioiprint contestant file_path ip`
-- `ioiprint mass file_path count printer`
+- `ioiprint mass file_path printer count`
