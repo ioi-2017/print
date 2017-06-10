@@ -10,13 +10,13 @@
 
     <div class="sep"></div>
 
-    <p>Pages: {{ num_pages }} (was {{ original_num_pages }})</p>
-    <p>Time: {{ time }}Fri, 15:40:20</p>
+    <p>Pages: {{ num_pages }}{% if original_num_pages %} (was {{ original_num_pages }}){% endif %}</p>
+    <p>Time: {{ time }}</p>
     <p>Print ID: {{ print_id }}</p>
 
-    <div class="location"></div>
+    <div class="location" style="background-image: url('{{ desk_map_img }}')"></div>
 
-    <img class="desk_map" src="{{ desk_map_img }}">
+    <img class="ioi_logo" src="img/ioi-1.svg">
 </div>
 </body>
 </html>

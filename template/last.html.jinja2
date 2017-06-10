@@ -8,8 +8,8 @@
     <div class="sep"></div>
 
     <p>Print ID: {{ print_id }}</p>
-    <p>Pages: {{ num_pages }} (was {{ original_num_pages }})</p>
-    <p>Time: {{ time }}Fri, 15:40:20</p>
+    <p>Pages: {{ num_pages }}{% if original_num_pages %} (was {{ original_num_pages }}){% endif %}</p>
+    <p>Time: {{ time }}</p>
     <p>User: {{ contestant_id }}</p>
     <p>Desk: {{ desk_id }}</p>
     <p>Country: {{ country_name }}</p>

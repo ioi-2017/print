@@ -32,7 +32,10 @@ p {
 }
 
 .location {
-    background-color: #e5e5e5;
+    /*background-color: #e5e5e5;*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     border: 1px solid #ccc;
     width: 300pt;
     height: 240pt;
@@ -52,7 +55,7 @@ p {
     overflow: hidden;
 }
 
-.desk_map {
+.ioi_logo {
     margin:-30pt -35pt;
     width:350pt
 }
