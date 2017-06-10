@@ -11,21 +11,21 @@
     - [ ] Front CUPS - configure `ioi-printer`
     - [ ] Create classes
     - [ ] Check if constestant computers can see `ioi-printer`
-    - [x] Get contestant data
+    - [ ] Get contestant data
         - for each IP: ID, Name, Country, Location, Floor
         - for each Location: SVG image
 
 - CMS Request
     - [ ] Determine types of requests (farzad)
     - [ ] Template
-    - [ ] Bash script in CMS - request type, IP (farzad)
+    - [ ] Bash script in CMS - request_type:String, IP (farzad)
     - [ ] Bash script in Print server
 
 - Translation
     - [ ] Translation Printer Class
     - [ ] First page template
-    - [x] Bash script in Translation system - Input Arguments: file path, country code, country name
+    - [ ] Bash script in Translation system - Input Arguments: file_path, country_code, country_name, [count]
     - [ ] Bash script in Print server
 
 - Mass Print Command
-    - [x] Bash script - Input Arguments: file path, count, printer/class
+    - [ ] Bash script - Input Arguments: file_path, count, printer/class
