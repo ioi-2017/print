@@ -29,3 +29,13 @@
 
 - Mass Print Command
     - [ ] Bash script - Input Arguments: file_path, count, printer/class
+
+
+## `ioiprint` python script
+Resides in (front-) print server
+
+Arguments:
+    - `ioiprint translation file_path country_code country_name count`
+    - `ioiprint cms request_msg ip`
+    - `ioiprint contestant file_path ip`
+    - `ioiprint mass file_path count printer`
