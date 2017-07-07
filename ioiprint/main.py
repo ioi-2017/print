@@ -1,14 +1,10 @@
 import sys
 
-from ioiprint.modifier import make_contestant_pdf
+from ioiprint import PRINTER_FOR_FLOOR, PRINTER_FOR_TRANSLATION
+from ioiprint.modifier import make_contestant_pdf, make_translation_pdf
 from ioiprint.netadmin import get_contestant_data
 from ioiprint.print import print_file
 from ioiprint.utils import download
-
-PRINTER_FOR_FLOOR = {
-    'floor1': 'floor1',
-    'floor2': 'floor2'
-}
 
 
 def print_usage_and_exit():
@@ -31,7 +27,10 @@ def main():
         country_code = sys.argv[3]
         country_name = sys.argv[4]
         count = int(sys.argv[5])
-        # TODO
+        final_pdf_path = make_translation_pdf(file_path, country_code,
+                                              country_name)
+        for _ in range(count):
+            print_file(final_pdf_path, PRINTER_FOR_TRANSLATION)
     elif command == 'cms':
         if len(sys.argv) < 4:
             print_usage_and_exit()
