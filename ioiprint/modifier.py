@@ -93,5 +93,20 @@ def make_contestant_pdf(pdf_file_path, contestant_id, contestant_name,
     return final_pdf_path
 
 
-def make_cms_pdf(message):
-    pass
+def make_cms_pdf(request_message, contestant_id, contestant_name, desk_id,
+                 desk_map_img):
+    formatted_time = datetime.now().strftime('%a, %H:%M:%S')
+
+    request_template = JINAJ_ENV.get_template('request.html.jinja2')
+    request_html = request_template.render(
+        static_path=STATIC_PATH,
+        contestant_id=contestant_id,
+        contestant_name=contestant_name,
+        desk_id=desk_id,
+        request_message=request_message,
+        time=formatted_time,
+        desk_map_img=desk_map_img
+    )
+    request_pdf = html_to_pdf(request_html, 'request')
+
+    return request_pdf

@@ -1,0 +1,22 @@
+<html>
+<head>
+    <link rel="stylesheet" href="{{ static_path }}/fonts.css">
+    <link rel="stylesheet" href="{{ static_path }}/style.css">
+</head>
+<body>
+<div class="container last">
+    <h1>{{ contestant_id }}</h1>
+    <h2>Desk: {{ desk_id }}</h2>
+    <p>{{ contestant_name }}</p>
+
+    <div class="sep"></div>
+
+    <p>Request: {{ request_message }}</p>
+    <p>Time: {{ time }}</p>
+
+    <div class="location" style="background-image: url('{{ desk_map_img }}')"></div>
+
+    <img class="ioi_logo" src="{{ static_path }}/ioi-1.svg">
+</div>
+</body>
+</html>

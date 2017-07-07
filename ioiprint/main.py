@@ -1,7 +1,8 @@
 import sys
 
 from ioiprint import PRINTER_FOR_FLOOR, PRINTER_FOR_TRANSLATION
-from ioiprint.modifier import make_contestant_pdf, make_translation_pdf
+from ioiprint.modifier import make_cms_pdf, make_contestant_pdf, \
+    make_translation_pdf
 from ioiprint.netadmin import get_contestant_data
 from ioiprint.print import print_file
 from ioiprint.utils import download
@@ -36,7 +37,18 @@ def main():
             print_usage_and_exit()
         request_message = sys.argv[2]
         ip = sys.argv[3]
-        # TODO
+        contestant_data = get_contestant_data(ip)
+        desk_map_img = download(contestant_data['desk_image_url'],
+                                'desk_map.svg')
+        request_pdf_path = make_cms_pdf(
+            request_message,
+            contestant_data['contestant_id'],
+            contestant_data['contestant_name'],
+            contestant_data['desk_id'],
+            desk_map_img
+        )
+        print_file(request_pdf_path,
+                   PRINTER_FOR_FLOOR[contestant_data['floor']])
     elif command == 'contestant':
         if len(sys.argv) < 4:
             print_usage_and_exit()
