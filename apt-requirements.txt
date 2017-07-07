@@ -1,2 +1,3 @@
 wkhtmltopdf
 pdftk
+cups-pdf
