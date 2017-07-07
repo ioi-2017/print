@@ -12,7 +12,11 @@ PRINTER_FOR_FLOOR = {
 
 
 def print_usage_and_exit():
-    print("Usage")
+    print("Usage:")
+    print("ioiprint translation FILE_PATH COUNTRY_CODE COUNTRY_NAME COUNT")
+    print("ioiprint cms REQUEST_MESSAGE IP")
+    print("ioiprint contestant FILE_PATH IP CUPS_JOB_ID")
+    print("ioiprint mass FILE_PATH PRINTER COUNT")
     exit(1)
 
 

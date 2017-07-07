@@ -34,7 +34,7 @@ def make_contestant_pdf(file_path, contestant_id, contestant_name,
 
     first_page_template = JINAJ_ENV.get_template('first.html.jinja2')
     first_page_html = first_page_template.render(
-        static_path=os.path.join(PATH, 'template'),
+        static_path=os.path.join(PATH, 'static'),
         contestant_id=contestant_id,
         desk_id=desk_id,
         contestant_name=contestant_name,
@@ -48,7 +48,7 @@ def make_contestant_pdf(file_path, contestant_id, contestant_name,
 
     last_page_template = JINAJ_ENV.get_template('last.html.jinja2')
     last_page_html = last_page_template.render(
-        static_path=os.path.join(PATH, 'template'),
+        static_path=os.path.join(PATH, 'static'),
         print_id=print_id,
         num_pages=num_pages,
         original_num_pages=original_num_pages,
