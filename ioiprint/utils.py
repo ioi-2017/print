@@ -1,5 +1,6 @@
 import os
 import subprocess
+import urllib.request
 
 _TMP_DIR = None
 
@@ -13,8 +14,10 @@ def get_temp_directory():
     return _TMP_DIR
 
 
-def download(url):
-    pass
+def download(url, file_name):
+    downloaded_file_path = os.path.join(get_temp_directory(), file_name)
+    urllib.request.urlretrieve(url, downloaded_file_path)
+    return downloaded_file_path
 
 
 def html_to_pdf(html, name):

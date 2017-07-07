@@ -4,7 +4,7 @@ from datetime import datetime
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from ioiprint import PATH
+from ioiprint import PATH, MAX_NUM_OF_PAGES_FOR_CONTESTANTS
 from ioiprint.utils import get_temp_directory, html_to_pdf
 
 JINAJ_ENV = Environment(
@@ -19,9 +19,18 @@ def make_translation_pdf(file_path):
 
 def make_contestant_pdf(file_path, contestant_id, contestant_name,
                         contestant_country, desk_id, desk_map_img, print_id):
-    num_pages = 10
-    original_num_pages = None
     formatted_time = datetime.now().strftime('%a, %H:%M:%S')
+    num_pages = int(subprocess.check_output(
+        'pdftk %s dump_data | '
+        'grep NumberOfPages | '
+        'awk \'{ print $2 }\'' % file_path,
+        shell=True)[:-1]
+    )
+    original_num_pages = None
+
+    if num_pages > MAX_NUM_OF_PAGES_FOR_CONTESTANTS:
+        original_num_pages = num_pages
+        num_pages = MAX_NUM_OF_PAGES_FOR_CONTESTANTS
 
     first_page_template = JINAJ_ENV.get_template('first.html.jinja2')
     first_page_html = first_page_template.render(
@@ -57,7 +66,8 @@ def make_contestant_pdf(file_path, contestant_id, contestant_name,
         'I=%s' % file_path,
         'F=%s' % first_page_pdf,
         'L=%s' % last_page_pdf,
-        'cat', 'F1', 'I', 'L1', 'output', final_pdf_path], check=True)
+        'cat', 'F1', 'I1-%s' % num_pages, 'L1', 'output', final_pdf_path],
+        check=True)
     return final_pdf_path
 
 

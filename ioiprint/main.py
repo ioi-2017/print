@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 import sys
 
 from ioiprint.modifier import make_contestant_pdf
@@ -42,7 +41,8 @@ def main():
         ip = sys.argv[3]
         cups_job_id = sys.argv[4]
         contestant_data = get_contestant_data(ip)
-        desk_map_img = download(contestant_data['desk_image_url'])
+        desk_map_img = download(contestant_data['desk_image_url'],
+                                'desk_map.svg')
         final_pdf_path = make_contestant_pdf(
             file_path,
             contestant_data['contestant_id'],
@@ -63,6 +63,3 @@ def main():
             print_file(file_path, printer)
     else:
         print_usage_and_exit()
-
-if __name__ == '__main__':
-    main()
