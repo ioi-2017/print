@@ -1,3 +1,4 @@
 wkhtmltopdf
 pdftk
 cups-pdf
+xvfb
