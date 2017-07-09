@@ -5,7 +5,7 @@ import string
 
 from flask import Flask, request
 
-from ioiprint import PATH_FOR_TYPE, PRINTER_FOR_TRANSLATION, PRINTER_FOR_ZONE
+from ioiprint import PATH_FOR_TYPE, DEFAULT_PRINTER, PRINTER_FOR_ZONE
 from ioiprint.modifier import make_cms_request_pdf, make_contestant_pdf, \
     make_translation_pdf
 from ioiprint.netadmin import get_contestant_data
@@ -49,7 +49,7 @@ def translation():
         country_name
     )
     for _ in range(count):
-        print_file(final_pdf_path, PRINTER_FOR_TRANSLATION)
+        print_file(final_pdf_path, DEFAULT_PRINTER)
     return "OK"
 
 
@@ -90,4 +90,4 @@ def contestant():
     return "OK"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")

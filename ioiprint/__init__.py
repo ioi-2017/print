@@ -18,7 +18,7 @@ PRINTER_FOR_ZONE = {
     'H': 'floor2',
 }
 
-PRINTER_FOR_TRANSLATION = 'default'
+DEFAULT_PRINTER = 'default'
 
 NET_ADMIN_URL = 'netadmin.ioi2017.org'
 CONTESTANT_DATA_ADDRESS_URL = 'http://{url}/api/nodes/ip/{{ip}}/'.format(
