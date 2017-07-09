@@ -1,6 +1,6 @@
 import sys
 
-from ioiprint import PRINTER_FOR_FLOOR, PRINTER_FOR_TRANSLATION
+from ioiprint import PRINTER_FOR_ZONE, PRINTER_FOR_TRANSLATION
 from ioiprint.modifier import make_cms_pdf, make_contestant_pdf, \
     make_translation_pdf
 from ioiprint.netadmin import get_contestant_data
@@ -48,7 +48,7 @@ def main():
             desk_map_img
         )
         print_file(request_pdf_path,
-                   PRINTER_FOR_FLOOR[contestant_data['floor']])
+                   PRINTER_FOR_ZONE[contestant_data['zone']])
     elif command == 'contestant':
         if len(sys.argv) < 4:
             print_usage_and_exit()
@@ -67,7 +67,7 @@ def main():
             desk_map_img,
             cups_job_id
         )
-        print_file(final_pdf_path, PRINTER_FOR_FLOOR[contestant_data['floor']])
+        print_file(final_pdf_path, PRINTER_FOR_ZONE[contestant_data['zone']])
     elif command == 'mass':
         if len(sys.argv) < 5:
             print_usage_and_exit()

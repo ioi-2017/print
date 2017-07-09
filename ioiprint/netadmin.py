@@ -1,9 +1,7 @@
 import json
 from urllib.request import urlopen
 
-NET_ADMIN_URL = 'netadmin.ioi2017.org'
-CONTESTANT_DATA_ADDRESS_URL = 'http://{url}/api/nodes/ip/{{ip}}/'.format(
-    url=NET_ADMIN_URL)
+from ioiprint import CONTESTANT_DATA_ADDRESS_URL, NET_ADMIN_URL
 
 
 def get_contestant_data(ip):
@@ -13,7 +11,7 @@ def get_contestant_data(ip):
         'contestant_id': data['contestant']['id'],
         'contestant_name': data['contestant']['name'],
         'contestant_country': data['contestant']['country'],
-        'floor': data['desk']['room'],
+        'zone': data['desk']['zone'],
         'desk_id': data['desk']['id'],
         'desk_image_url': 'http://' + NET_ADMIN_URL + data['desk']['map']
     }

@@ -7,9 +7,19 @@ TEMPLATES_PATH = os.path.join(PATH, 'template')
 
 MAX_NUM_OF_PAGES_FOR_CONTESTANTS = 12
 
-PRINTER_FOR_FLOOR = {
-    'floor1': 'floor1',
-    'floor2': 'floor2'
+PRINTER_FOR_ZONE = {
+    'A': 'floor1',
+    'B': 'floor1',
+    'C': 'floor1',
+    'D': 'floor1',
+    'E': 'floor2',
+    'F': 'floor2',
+    'G': 'floor2',
+    'H': 'floor2',
 }
 
 PRINTER_FOR_TRANSLATION = 'default'
+
+NET_ADMIN_URL = 'netadmin.ioi2017.org'
+CONTESTANT_DATA_ADDRESS_URL = 'http://{url}/api/nodes/ip/{{ip}}/'.format(
+    url=NET_ADMIN_URL)
