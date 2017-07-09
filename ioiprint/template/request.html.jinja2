@@ -15,7 +15,9 @@
     <p>Request type: {{ request_message }}</p>
     <p>Time: {{ time }}</p>
 
-    <div class="location" style="background-image: url('{{ desk_map_img }}')"></div>
+    <div class="location">
+        <img class="map" src="{{ desk_map_img }}">
+    </div>
 
     <p class="notes">Notes:</p>
 

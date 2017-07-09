@@ -30,7 +30,7 @@ def upload():
 @app.route('/mass', methods=['POST'])
 def mass():
     filename = request.form['filename']
-    printer = request.form['printer']
+    printer = request.form.get('printer', DEFAULT_PRINTER)
     count = int(request.form['count'])
     for _ in range(count):
         print_file(os.path.join(PATH_FOR_TYPE['mass'], filename), printer)
