@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+#  ioiprint:
+#    build: .
+  cups:
+    build: ./cups/
+    ports:
+    - 6631:631
+    environment:
+      CUPS_ADMIN_USER: admin
+      CUPS_ADMIN_PASSWORD: 123456
