@@ -93,8 +93,8 @@ def make_contestant_pdf(pdf_file_path, contestant_id, contestant_name,
     return final_pdf_path
 
 
-def make_cms_pdf(request_message, contestant_id, contestant_name, desk_id,
-                 desk_map_img):
+def make_cms_request_pdf(request_message, contestant_id, contestant_name, desk_id,
+                         desk_map_img):
     formatted_time = datetime.now().strftime('%a, %H:%M:%S')
 
     request_template = JINAJ_ENV.get_template('request.html.jinja2')

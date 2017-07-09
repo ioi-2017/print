@@ -1,7 +1,7 @@
 import sys
 
 from ioiprint import PRINTER_FOR_ZONE, PRINTER_FOR_TRANSLATION
-from ioiprint.modifier import make_cms_pdf, make_contestant_pdf, \
+from ioiprint.modifier import make_cms_request_pdf, make_contestant_pdf, \
     make_translation_pdf
 from ioiprint.netadmin import get_contestant_data
 from ioiprint.print import print_file
@@ -40,7 +40,7 @@ def main():
         contestant_data = get_contestant_data(ip)
         desk_map_img = download(contestant_data['desk_image_url'],
                                 'desk_map.svg')
-        request_pdf_path = make_cms_pdf(
+        request_pdf_path = make_cms_request_pdf(
             request_message,
             contestant_data['contestant_id'],
             contestant_data['contestant_name'],

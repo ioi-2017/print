@@ -23,3 +23,10 @@ PRINTER_FOR_TRANSLATION = 'default'
 NET_ADMIN_URL = 'netadmin.ioi2017.org'
 CONTESTANT_DATA_ADDRESS_URL = 'http://{url}/api/nodes/ip/{{ip}}/'.format(
     url=NET_ADMIN_URL)
+
+PDF_UPLOAD_PATH = os.path.join(PATH, 'uploads')
+PATH_FOR_TYPE = {
+    'translation': os.path.join(PDF_UPLOAD_PATH, 'translation'),
+    'contestant': os.path.join(PDF_UPLOAD_PATH, 'contestant'),
+    'mass': os.path.join(PDF_UPLOAD_PATH, 'mass')
+}
