@@ -2,3 +2,5 @@ wkhtmltopdf
 pdftk
 cups-pdf
 xvfb
+python3
+python3-pip
