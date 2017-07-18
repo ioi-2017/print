@@ -9,13 +9,15 @@
     <h2>Print<br>Last Page</h2>
     <div class="sep"></div>
 
-    <p>Print ID: {{ print_id }}</p>
-    <p>Pages: {{ num_pages }}{% if original_num_pages %} (was {{ original_num_pages }}){% endif %}</p>
-    <p>Time: {{ time }}</p>
-    <p>User: {{ contestant_id }}</p>
-    <p>Desk: {{ desk_id }}</p>
-    <p>Country: {{ country_name }}</p>
-    <p>{{ contestant_name }}</p>
+    <div class="text">
+        <p>Print ID: {{ print_id }}</p>
+        <p>Pages: {{ num_pages }}{% if original_num_pages %} (was {{ original_num_pages }}){% endif %}</p>
+        <p>Time: {{ time }}</p>
+        <p>User: {{ contestant_id }}</p>
+        <p>Name: {{ contestant_name }}</p>
+        <p>Desk: {{ desk_id }}</p>
+        <p>Country: {{ country_name }}</p>
+    </div>
 </div>
 <div id="sidebar">
     <img id="side_image" src="{{ static_path }}/side.png">

@@ -1,7 +1,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="{{ static_path }}/fonts.css">
-    <link rel="stylesheet" href="{{ static_path }}/style.css">
+    <link rel="styleshe297/210et" href="{{ static_path }}/style.css">
     <meta charset="UTF-8">
 </head>
 <body>
@@ -16,7 +16,9 @@
     <p>Time: {{ time }}</p>
     <p>Print ID: {{ print_id }}</p>
 
-    <div class="location" style="background-image: url('{{ desk_map_img }}')"></div>
+    <div class="location">
+        <img class="map" src="{{ desk_map_img }}">
+    </div>
 
     <img class="ioi_logo" src="{{ static_path }}/ioi-1.svg">
 </div>

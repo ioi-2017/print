@@ -1,8 +1,5 @@
 #!/bin/bash
-
-PRINT_SERVER_IP="192.168.100.52"
-PRINT_SERVER_USERNAME="print_user"
-PRINT_SERVER_SSH_ADDRESS="${PRINT_SERVER_USERNAME}@${PRINT_SERVER_IP}"
+PRINT_SERVER_ADDRESS="http://localhost:5000"
 
 if (( $# != 2 )); then
     echo "Illegal number of arguments, it should be 2"
@@ -13,4 +10,4 @@ fi
 REQUEST_MSG=$1
 CONTESTANT_IP=$2
 
-ssh "$PRINT_SERVER_SSH_ADDRESS" -C "ioiprint cms '$REQUEST_MSG' '$CONTESTANT_IP'"
+curl --data "request_message=${REQUEST_MSG}&ip=${CONTESTANT_IP}" ${PRINT_SERVER_ADDRESS}/cms_request
