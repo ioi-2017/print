@@ -1,12 +1,29 @@
 version: '3.1'
 
 services:
-#  ioiprint:
-#    build: .
-  cups:
-    build: ./cups/
+  ioiprint:
+    build: .
+    ports:
+    - 5000:5000
+    volumes:
+    - ./uploads/:/usr/src/ioiprint/uploads/
+    environment:
+      NETADMIN_URL: netadmin.ioi2017.org
+      UPLOADS_DIRECTORY: /usr/src/ioiprint/uploads/
+      CUPS_ADDRESS: cups-back:631
+
+  cups-front:
+    build: cups/
+    ports:
+    - 6632:631
+    environment:
+      CUPS_USER_ADMIN: admin
+      CUPS_USER_PASSWORD: 123456
+
+  cups-back:
+    image: aadl/cups-alpine:2.2.3
     ports:
     - 6631:631
     environment:
-      CUPS_ADMIN_USER: admin
-      CUPS_ADMIN_PASSWORD: 123456
+      CUPS_USER_ADMIN: admin
+      CUPS_USER_PASSWORD: 123456

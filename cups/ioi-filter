@@ -1,5 +1,5 @@
-#!/bin/bash
-PRINT_SERVER_ADDRESS="http://localhost:5000"
+#!/bin/sh
+PRINT_SERVER_ADDRESS="http://ioiprint:5000"
 
 TMP_FILE="/tmp/`date '+%F_%T'`.pdf"
 

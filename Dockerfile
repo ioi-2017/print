@@ -1,11 +1,16 @@
-FROM ubuntu:xenial-20170619
+FROM ubuntu:xenial-20170710
 
 RUN apt-get -yq update && \
-    apt-get install -yq python3 python3-pip wkhtmltopdf pdftk cups cups-pdf xvfb
+    apt-get -yq install python3 python3-pip wkhtmltopdf pdftk xvfb cups-bsd && \
+    pip3 install -U pip
 
-ADD . /usr/src/print-system/
-WORKDIR /usr/src/print-system/
+ADD requirements.txt /root/requirements.txt
+RUN pip3 install -r /root/requirements.txt
 
-RUN pip3 install .
+ADD docker-entrypoint.sh /root/docker-entrypoint.sh
+RUN chmod +x /root/docker-entrypoint.sh
 
-ENTRYPOINT ['bash']
+ADD . /usr/src/ioiprint
+WORKDIR /usr/src/ioiprint
+
+ENTRYPOINT ["/root/docker-entrypoint.sh"]

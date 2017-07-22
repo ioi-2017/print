@@ -40,8 +40,12 @@ def make_translation_pdf(pdf_file_path, country_code, country_name,
     first_page_pdf = html_to_pdf(first_page_html, 'first', temp_directory)
 
     final_pdf_path = os.path.join(temp_directory, 'final.pdf')
-    subprocess.run(['pdftk', 'I=%s' % pdf_file_path, 'F=%s' % first_page_pdf,
-                    'cat', 'F', 'I', 'output', final_pdf_path], check=True)
+    subprocess.run([
+        'pdftk',
+        'I=%s' % pdf_file_path,
+        'F=%s' % first_page_pdf,
+        'cat', 'F', 'I', 'output', final_pdf_path],
+        check=True)
     return final_pdf_path
 
 

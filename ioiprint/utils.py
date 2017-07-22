@@ -2,6 +2,9 @@ import os
 import subprocess
 import urllib.request
 
+import pdfkit
+from xvfbwrapper import Xvfb
+
 _TMP_DIR = None
 
 
@@ -22,5 +25,6 @@ def html_to_pdf(html, name, temp_directory):
     with open(html_file_path, 'w') as html_file:
         html_file.write(html)
     pdf_file_path = os.path.join(temp_directory, '%s.pdf' % name)
-    subprocess.run(['wkhtmltopdf', html_file_path, pdf_file_path], check=True)
+    with Xvfb():
+        pdfkit.from_file(html_file_path, pdf_file_path)
     return pdf_file_path

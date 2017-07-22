@@ -1,11 +1,10 @@
-#!/usr/bin/env python
 import os
 import random
 import string
 
 from flask import Flask, request
 
-from ioiprint import PATH_FOR_TYPE, DEFAULT_PRINTER, PRINTER_FOR_ZONE
+from ioiprint import DEFAULT_PRINTER, PDF_UPLOAD_PATH, PRINTER_FOR_ZONE
 from ioiprint.modifier import make_cms_request_pdf, make_contestant_pdf, \
     make_translation_pdf
 from ioiprint.netadmin import get_contestant_data
@@ -22,8 +21,7 @@ def upload():
         random.choice(string.ascii_uppercase + string.digits)
         for _ in range(10)
     ) + '.pdf'
-    file.save(os.path.join(PATH_FOR_TYPE[request.form['type']],
-                           random_file_name))
+    file.save(os.path.join(PDF_UPLOAD_PATH, random_file_name))
     return random_file_name
 
 
@@ -33,7 +31,7 @@ def mass():
     printer = request.form.get('printer', DEFAULT_PRINTER)
     count = int(request.form['count'])
     for _ in range(count):
-        print_file(os.path.join(PATH_FOR_TYPE['mass'], filename), printer)
+        print_file(os.path.join(PDF_UPLOAD_PATH, filename), printer)
     return "OK"
 
 
@@ -45,7 +43,7 @@ def translation():
     count = int(request.form['count'])
     temp_directory = create_temp_directory()
     final_pdf_path = make_translation_pdf(
-        os.path.join(PATH_FOR_TYPE['translation'], filename),
+        os.path.join(PDF_UPLOAD_PATH, filename),
         country_code,
         country_name,
         temp_directory
@@ -85,7 +83,7 @@ def contestant():
     desk_map_img = download(contestant_data['desk_image_url'], 'desk_map.svg',
                             temp_directory)
     final_pdf_path = make_contestant_pdf(
-        os.path.join(PATH_FOR_TYPE['contestant'], filename),
+        os.path.join(PDF_UPLOAD_PATH, filename),
         contestant_data['contestant_id'],
         contestant_data['contestant_name'],
         contestant_data['contestant_country'],
@@ -96,6 +94,3 @@ def contestant():
     )
     print_file(final_pdf_path, PRINTER_FOR_ZONE[contestant_data['zone']])
     return "OK"
-
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
