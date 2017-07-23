@@ -11,6 +11,15 @@ services:
       NETADMIN_URL: netadmin.ioi2017.org
       UPLOADS_DIRECTORY: /usr/src/ioiprint/uploads/
       CUPS_ADDRESS: cups-back:631
+      ZONE_A_PRINTER: floor1
+      ZONE_B_PRINTER: floor1
+      ZONE_C_PRINTER: floor1
+      ZONE_D_PRINTER: floor1
+      ZONE_E_PRINTER: floor2
+      ZONE_F_PRINTER: floor2
+      ZONE_G_PRINTER: floor2
+      ZONE_H_PRINTER: floor2
+      DEFAULT_PRINTER: default
 
   cups-front:
     build: cups/

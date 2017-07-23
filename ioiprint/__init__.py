@@ -8,17 +8,17 @@ TEMPLATES_PATH = os.path.join(PATH, 'template')
 MAX_NUM_OF_PAGES_FOR_CONTESTANTS = 12
 
 PRINTER_FOR_ZONE = {
-    'A': 'floor1',
-    'B': 'floor1',
-    'C': 'floor1',
-    'D': 'floor1',
-    'E': 'floor2',
-    'F': 'floor2',
-    'G': 'floor2',
-    'H': 'floor2',
+    'A': os.getenv('ZONE_A_PRINTER'),
+    'B': os.getenv('ZONE_B_PRINTER'),
+    'C': os.getenv('ZONE_C_PRINTER'),
+    'D': os.getenv('ZONE_D_PRINTER'),
+    'E': os.getenv('ZONE_E_PRINTER'),
+    'F': os.getenv('ZONE_F_PRINTER'),
+    'G': os.getenv('ZONE_G_PRINTER'),
+    'H': os.getenv('ZONE_H_PRINTER'),
 }
 
-DEFAULT_PRINTER = 'default'
+DEFAULT_PRINTER = os.getenv('DEFAULT_PRINTER')
 
 NET_ADMIN_URL = os.getenv('NETADMIN_URL')
 CONTESTANT_DATA_ADDRESS_URL = 'http://{url}/api/nodes/ip/{{ip}}/'.format(

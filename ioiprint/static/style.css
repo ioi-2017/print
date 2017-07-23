@@ -34,9 +34,13 @@ p {
     background-position: center;
     background-size: contain;
     border: 1px solid #ccc;
-    width: 300pt;
+    width: 340pt;
     height: 240pt;
     margin: 30pt 0;
+}
+
+.map {
+    height: 100%;
 }
 
 .sep {
