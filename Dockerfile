@@ -1,13 +1,11 @@
 FROM ubuntu:xenial-20170710
 
 RUN apt-get -yq update && \
-    apt-get -yq install python3 python3-pip wkhtmltopdf pdftk xvfb cups-bsd && \
+    apt-get -yq install python3 python3-pip wkhtmltopdf pdftk xvfb cups-bsd tzdata && \
     pip3 install -U pip
 
 ADD requirements.txt /root/requirements.txt
 RUN pip3 install -r /root/requirements.txt
-
-RUN apt-get -yq install tzdata
 
 RUN ln -fs /usr/share/zoneinfo/Asia/Tehran /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
