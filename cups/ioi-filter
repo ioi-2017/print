@@ -3,7 +3,7 @@ PRINT_SERVER_ADDRESS="http://ioiprint:5000"
 
 TMP_FILE="/tmp/`date '+%F_%T'`.pdf"
 
-CONTESTANT_IP=`echo $5 | grep -oP "job-originating-host-name=\K(\w|\.)+"`
+CONTESTANT_IP=`echo $5 | grep -oE "job-originating-host-name=(\w|\.)+" | sed -e "s/job-originating-host-name=//"`
 CUPS_JOB_ID=$1
 
 cat - > ${TMP_FILE}
