@@ -7,6 +7,11 @@ RUN apt-get -yq update && \
 ADD requirements.txt /root/requirements.txt
 RUN pip3 install -r /root/requirements.txt
 
+RUN apt-get -yq install tzdata
+
+RUN ln -fs /usr/share/zoneinfo/Asia/Tehran /etc/localtime && \
+    dpkg-reconfigure -f noninteractive tzdata
+
 ADD docker-entrypoint.sh /root/docker-entrypoint.sh
 RUN chmod +x /root/docker-entrypoint.sh
 
