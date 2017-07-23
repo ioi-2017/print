@@ -12,6 +12,7 @@ RUN chown root:lp /root/printers.conf && \
     chown root:lp /root/ioi_printer.ppd && \
     chmod 640 /root/ioi_printer.ppd && \
     chown root:root /root/ioi-filter && \
-    chmod 755 /root/ioi-filter
+    chmod 755 /root/ioi-filter && \
+    chmod +x /root/docker-entrypoint.sh
 
 ENTRYPOINT ["/root/docker-entrypoint.sh"]

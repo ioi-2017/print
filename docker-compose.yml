@@ -15,7 +15,7 @@ services:
   cups-front:
     build: cups/
     ports:
-    - 6632:631
+    - 631:631
     environment:
       CUPS_USER_ADMIN: admin
       CUPS_USER_PASSWORD: 123456
