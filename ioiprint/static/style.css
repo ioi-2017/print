@@ -29,7 +29,7 @@ p {
 }
 
 .location {
-    background-color: #e5e5e5;
+    background-color: #e9e9e9;
     border: 1px solid #ccc;
     width: 510px;
     height: 360px;
@@ -63,6 +63,11 @@ p {
     width: 500px;
 }
 
+.ioi_logo_trans {
+    margin: 0 -50px;
+    width: 500px;
+}
+
 #side_image {
     width: 400px;
 }
@@ -80,7 +85,11 @@ p {
 }
 
 .request {
-    margin-top: -50px;
+    margin-top: 0;
+}
+
+.trans {
+    margin-top: 350px;
 }
 
 .small-height {
