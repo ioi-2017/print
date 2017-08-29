@@ -187,7 +187,7 @@ By default the system will get contestant data from [IOI Net Administraion Syste
 
 If you want to change the source of contestant data (e.g. to read it from a file) you should change the `get_contestant_data` function in `ioiprint/contestant_data.py` file.
 The input of the function is the ip of the contestant's computer.
-The output should be a python dictionary consisting the following keys:
+The output should be a python dictionary consisting of the following keys:
 - `contestant_id`: ID of the contestant
 - `contestant_name`: Name of the contestant
 - `contestant_country`: Country name of the contestant
