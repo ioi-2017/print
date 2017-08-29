@@ -2,7 +2,10 @@ version: '3.1'
 
 services:
   ioiprint:
-    build: .
+    build:
+      context: .
+      args:
+        TIMEZONE: Asia/Tehran  # The timezone in which times are calculated
     ports:
     - 5000:5000  # The first 5000 is the port the print service will be on
     volumes:
@@ -11,25 +14,32 @@ services:
       NETADMIN_URL: netadmin.ioi2017.org  # the address of IOI Net Administration System
       UPLOADS_DIRECTORY: /usr/src/ioiprint/uploads/
       CUPS_ADDRESS: cups-back:631
-      # The printer or class names used for contest zones (They should exist in cups-back server)
-      ZONE_A_PRINTER: floor1
-      ZONE_B_PRINTER: floor1
-      ZONE_C_PRINTER: floor1
-      ZONE_D_PRINTER: floor1
-      ZONE_E_PRINTER: floor2
-      ZONE_F_PRINTER: floor2
-      ZONE_G_PRINTER: floor2
-      ZONE_H_PRINTER: floor2
+      # The printer or class names used for contest zones in json format (They should exist in cups-back server)
+      PRINTERS_FOR_ZONES: >
+        {
+          "A": "floor1",
+          "B": "floor1",
+          "C": "floor1",
+          "D": "floor1",
+          "E": "floor2",
+          "F": "floor2",
+          "G": "floor2",
+          "H": "floor2"
+        }
       DEFAULT_PRINTER: default  # The printer or class name used for translation and mass requests
 
   cups-front:
-    build: cups/
+    build:
+      context: cups/
+      args:
+        PRINTER_NAME: ioi_printer  # The printer name to setup on contestants' computers
     ports:
     - 631:631
     environment:
       # Username and password used for cups-front server
       CUPS_USER_ADMIN: admin
       CUPS_USER_PASSWORD: 123456
+      PRINTER_NAME: ioi_printer  # It should be the same as PRINTER_NAME in build args
 
   cups-back:
     image: aadl/cups-alpine:2.2.3
