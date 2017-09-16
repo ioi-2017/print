@@ -45,9 +45,9 @@ Check out [docker-compose documentation](https://docs.docker.com/compose/) for m
 #### Configure printers
 
 Go to `http://printer_server_address:6631/`, it is cups server configuration page:
-1. Go to `Administration page`, click on `Add Printer`.
-2. Select `Internet Printing Protocol (ipp)`, click `Continue`.
-3. Write the network printer address in `Conntction`, click `Continue`. (Check your printer manual to find its ipp address)
+1. Go to `Administration page`, login with predefined username `admin` and password `ioi`.
+2. Click on `Add Printer`, select `Internet Printing Protocol (ipp)`, click `Continue`.
+3. Write the network printer address in `Connection`, click `Continue`. (Check your printer manual to find its ipp address)
 4. Set a `Name` for your printer and make sure `Share This Printer` is selected, click `Continue`. (The `Name` you use for your printer are the ones that you use in configuring printers in `ioiprint` in `docker-compose.yml`)
 5. Select `Generic` in the `Make` section, click `Continue`.
 6. Select `Generic IPP Everywhere Printer (en)` in the `Model` section, click `Continue`.
@@ -196,4 +196,3 @@ The output should be a python dictionary consisting of the following keys:
 - `desk_image_url` or `desk_image_path`: The SVG image of the map showing where the contestant is sitting.
 It will be downloaded if you provide `desk_image_url` or you should use `desk_image_path` if the file is on the computer already.
 (Please note that the path should be a path inside the docker container. e.g. `/usr/src/ioiprint/svgs/contestant1.svg`)
-

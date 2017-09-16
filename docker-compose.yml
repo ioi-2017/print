@@ -38,7 +38,7 @@ services:
     environment:
       # Username and password used for cups-front server
       CUPS_USER_ADMIN: admin
-      CUPS_USER_PASSWORD: 123456
+      CUPS_USER_PASSWORD: ioi
       PRINTER_NAME: ioi_printer  # It should be the same as PRINTER_NAME in build args
 
   cups-back:
@@ -48,4 +48,4 @@ services:
     environment:
       # Username and password used for cups-back server
       CUPS_USER_ADMIN: admin
-      CUPS_USER_PASSWORD: 123456
+      CUPS_USER_PASSWORD: ioi
