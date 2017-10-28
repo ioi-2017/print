@@ -1,34 +1,44 @@
-# IOI Printing system
+IOI Print System
+================
 
-IOI Printing system is the system used to handle all print requests in [International Olympiad in Informatics](http://www.ioinformatics.org/) during contest and in translation meetings.
-It has been developed and used first in [29th IOI](http://ioi2017.org/) in Tehran, Iran.
+The IOI Print System handles all print requests in the International
+Olympiad in Informatics, during the contests and in the translation meetings.
+It has been developed and first used in the [IOI 2017](http://ioi2017.org/)
+in Tehran, Iran.
 
-The current system supports the following tasks and requests:
-  * Print requests from contestants during contest (By a custom printer installed on all contestants pc) \[`contestant`\]
-  * Call staff requests from [IOI Contest Management System](https://github.com/akmohtashami/cms) \[`cms_request`\]
-  * Custom translation print requests used during translation meetings from [IOI Translation System](https://github.com/noidsirius/IOI-Translation) \[`translation`\]
-  * Custom print requests \[`mass`\]
+The system supports the following tasks and requests:
+  * Print requests from contestants during the contest
+    (via a custom printer installed on all contestants machines) [`contestant`]
+  * Call staff requests from the IOI Contest Management System [`cms_request`]
+  * Print requests from the IOI Translation System during the translation meetings
+    [`translation`]
+  * Custom mass print requests [`mass`]
 
-It also connects to [IOI Net Administraion System](https://github.com/m30m/net-admin) to get contestant information during contests.
 
-## Installation
+Installation
+------------
 
-To run this project you need to install [docker](https://docs.docker.com/engine/installation/) and [docker-compose](https://docs.docker.com/compose/install/).
-(It has been deployed and tested with docker 17.06.0-ce and docker-compose 1.14.0 but it must work with the latest versions too.)
+To run the project, you need to install
+[docker](https://docs.docker.com/engine/installation/) and
+[docker-compose](https://docs.docker.com/compose/install/).
+(It has been deployed and tested with docker 17.06.0-ce
+and docker-compose 1.14.0, but it should work with newer versions as well.)
 
-After that clone the project:
+After that, clone the project using the following command:
 
 ```bash
 git clone git_address/print-system.git
 ```
 
-Then configure the project in `docker-compose.yml` (descriptions on how to configure is written as comments in the file) and run:
+Then configure the project in `docker-compose.yml`
+(descriptions on how to configure is commented in the file), and run:
 
 ```bash
 docker-compose up
 ```
 
-(You might get into errors if cups server is running or if something else using 631, 5000 or 6631 ports)
+(You might get into errors if cups server is running or if someone else
+is using ports 631, 5000, or 6631.)
 
 That's it! You have the print system up and ready for work!
 
@@ -40,7 +50,8 @@ docker-compose up -d
 
 Check out [docker-compose documentation](https://docs.docker.com/compose/) for more info.
 
-## How to use
+How to Use
+----------
 
 #### Configure printers
 
@@ -93,7 +104,8 @@ You can also change the template used for rendering the prints by changing the `
 
 You can use `scripts/mass.sh` (You should change `PRINT_SERVER_ADDRESS`).
 
-## Service Details
+Service Details
+---------------
 
 This service is consisted of three docker containers that are explained in details below:
 
@@ -181,11 +193,14 @@ A cups server running on port 6631 (You can change it in `docker-compose.yml`).
 This cup server is the one that all printers are configured on and the actual printings are happening here.
 All print requests from `ioiprint` comes to this cups server.
 
-## Changing contestant data source
+Changing Contestant Data Source
+-------------------------------
 
-By default the system will get contestant data from [IOI Net Administraion System](https://github.com/m30m/net-admin) and the address is configurable in `docker-compose.yml`.
+By default the system will get contestant data from the IOI Network Administration System,
+and the address is configurable in `docker-compose.yml`.
 
-If you want to change the source of contestant data (e.g. to read it from a file) you should change the `get_contestant_data` function in `ioiprint/contestant_data.py` file.
+If you want to change the source of contestant data (e.g. to read it from a file)
+you should change the `get_contestant_data` function in `ioiprint/contestant_data.py` file.
 The input of the function is the ip of the contestant's computer.
 The output should be a python dictionary consisting of the following keys:
 - `contestant_id`: ID of the contestant
@@ -196,3 +211,14 @@ The output should be a python dictionary consisting of the following keys:
 - `desk_image_url` or `desk_image_path`: The SVG image of the map showing where the contestant is sitting.
 It will be downloaded if you provide `desk_image_url` or you should use `desk_image_path` if the file is on the computer already.
 (Please note that the path should be a path inside the docker container. e.g. `/usr/src/ioiprint/svgs/contestant1.svg`)
+
+License
+-------
+
+This software is distributed under the MIT license (see LICENSE.txt),
+and uses third party libraries that are distributed under their own terms
+(see LICENSE-3RD-PARTY.txt).
+
+Copyright
+---------
+Copyright (c) 2017, IOI 2017 Host Technical Committee
