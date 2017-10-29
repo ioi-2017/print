@@ -1,10 +1,10 @@
-IOI Print System
-================
+IOI Printing System
+===================
 
-The IOI Print System handles all print requests in the International
-Olympiad in Informatics, during the contests and in the translation meetings.
-It has been developed and first used in the [IOI 2017](http://ioi2017.org/)
-in Tehran, Iran.
+The IOI Printing System handles all print requests in the International
+Olympiad in Informatics, during the contests and the translation meetings.
+The system has been developed for and was first used in the
+[IOI 2017](http://ioi2017.org/) in Tehran, Iran.
 
 The system supports the following tasks and requests:
   * Print requests from contestants during the contest
@@ -40,7 +40,7 @@ docker-compose up
 (You might get into errors if cups server is running or if someone else
 is using ports 631, 5000, or 6631.)
 
-That's it! You have the print system up and ready for work!
+That's it! You have the printing system up and ready for work!
 
 For running on actual server you might want to run docker-compose in daemon mode:
 
