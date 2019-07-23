@@ -5,26 +5,26 @@ services:
     build:
       context: .
       args:
-        TIMEZONE: Asia/Tehran  # The timezone in which times are calculated
+        TIMEZONE: Asia/Baku  # The timezone in which times are calculated
     ports:
     - 5000:5000  # The first 5000 is the port the print service will be on
     volumes:
     - ./uploads/:/usr/src/ioiprint/uploads/  # the directory before ":" is the uploads directory on the host machine
     environment:
-      NETADMIN_URL: netadmin.ioi2017.org  # the address of IOI Net Administration System
+      WEBSERVICE_URL:   # the address of the Web Service that provies the contestant information
       UPLOADS_DIRECTORY: /usr/src/ioiprint/uploads/
       CUPS_ADDRESS: cups-back:631
       # The printer or class names used for contest zones in json format (They should exist in cups-back server)
       PRINTERS_FOR_ZONES: >
         {
-          "A": "floor1",
-          "B": "floor1",
-          "C": "floor1",
-          "D": "floor1",
-          "E": "floor2",
-          "F": "floor2",
-          "G": "floor2",
-          "H": "floor2"
+          "A": "printer1",
+          "B": "printer1",
+          "C": "printer2",
+          "D": "printer2",
+          "E": "printer3",
+          "F": "printer3",
+          "G": "printer4",
+          "H": "printer4"
         }
       DEFAULT_PRINTER: default  # The printer or class name used for translation and mass requests
 
@@ -38,7 +38,7 @@ services:
     environment:
       # Username and password used for cups-front server
       CUPS_USER_ADMIN: admin
-      CUPS_USER_PASSWORD: ioi
+      CUPS_USER_PASSWORD: ioi2019
       PRINTER_NAME: ioi_printer  # It should be the same as PRINTER_NAME in build args
 
   cups-back:
@@ -48,4 +48,4 @@ services:
     environment:
       # Username and password used for cups-back server
       CUPS_USER_ADMIN: admin
-      CUPS_USER_PASSWORD: ioi
+      CUPS_USER_PASSWORD: ioi2019
