@@ -42,7 +42,7 @@ services:
       PRINTER_NAME: ioi_printer  # It should be the same as PRINTER_NAME in build args
 
   cups-back:
-    image: aadl/cups-alpine:2.2.3
+    image: aadl/cups-alpine
     ports:
     - 6631:631
     environment:

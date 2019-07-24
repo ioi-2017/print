@@ -1,4 +1,4 @@
-FROM aadl/cups-alpine:2.2.3
+FROM aadl/cups-alpine
 
 ARG PRINTER_NAME=ioi_printer
 
