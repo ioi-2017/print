@@ -7,7 +7,7 @@
 <body>
 <div class="first">
     <h1>{{ contestant_id }}</h1>
-    <h2>Desk: {{ desk_id }}</h2>
+    <h2>Desk: {{zone}} {{ desk_id }}</h2>
     <p>{{ contestant_name }}</p>
 
     <div class="sep"></div>
@@ -16,9 +16,9 @@
     <p>Time: {{ time }}</p>
     <p>Print ID: {{ print_id }}</p>
 
-    <!--div class="location">
+    <div class="location">
         <img class="map" src="{{ desk_map_img }}">
-    </div-->
+    </div>
 
     <img class="ioi_logo_first" src="{{ static_path }}/ioi-1.svg">
 </div>

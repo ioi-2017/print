@@ -13,5 +13,5 @@ def get_contestant_data(ip):
         'contestant_country': 'AZE', #data['contestant']['country'],
         'zone': 'A', #data['desk']['zone'],
         'desk_id': '13', #data['desk']['id'],
-        'desk_image_url': 'http://' + NET_ADMIN_URL + data['desk']['map']
+        'desk_image_url': 'https://ioi2019.az/images/logo_ioi2019.png' #'http://' + NET_ADMIN_URL + data['desk']['map']
     }
