@@ -1,4 +1,4 @@
 Jinja2==2.9.6
-Flask==0.12.2
+Flask==1.0
 pdfkit==0.6.1
 xvfbwrapper==0.2.9
